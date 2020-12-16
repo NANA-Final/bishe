@@ -1,0 +1,29 @@
+.container{
+
+    padding-top: 30px;
+
+}
+.class_div{
+    background-color: white;
+    box-shadow: 0 2px 4px 0 rgba(216,216,216,0.60);
+    border-radius: 4px;
+    padding: 0 0;
+    margin: 0 0;
+    text-align: center;
+}
+.class_information_title{
+    font-size: 18.5px;
+    line-height: 60px;
+    margin: 0 0;
+    border-bottom: 1px solid #ddd;
+    color: #002a80;
+
+    background: #fafafa;
+}
+.class_information{
+    padding: 10px 10px;
+    line-height: 30px;
+    color: #666;
+
+}
+

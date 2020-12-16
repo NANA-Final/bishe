@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jishaokang.dao.DiscussDAO">
+
+    <insert id="insert" parameterType="com.jishaokang.model.dto.Discuss" useGeneratedKeys="true" keyProperty="discussId">
+      INSERT INTO discuss (userId,competitionId,discussTime,discussContent,discussType)
+      VALUES (#{userId},#{competitionId},now(),#{discussContent},#{discussType})
+    </insert>
+
+    <select id="selectDiscussByCompetitionId" parameterType="com.jishaokang.model.dto.Discuss" resultMap="DiscussMap">
+        SELECT discussId,user.userId,competitionId,discussTime,discussContent,discussType,replyTotal,userImage,username
+        FROM discuss
+        left join user on user.userId = discuss.userId
+        where competitionId = #{competitionId} and discussType = #{discussType}
+    </select>
+
+    <select id="selectDiscussByUserId" parameterType="com.jishaokang.model.dto.Discuss" resultMap="DiscussMap">
+        SELECT discussId,user.userId,competitionId,discussTime,discussContent,discussType,replyTotal,userImage,username
+        FROM discuss
+        left join user on user.userId = discuss.userId
+        where user.userId = #{userId} and discussType = #{discussType}
+    </select>
+
+    <select id="selectDiscussByKeyWord" parameterType="com.jishaokang.model.dto.Discuss" resultMap="DiscussMap">
+        SELECT discussId,user.userId,competitionId,discussTime,discussContent,discussType,replyTotal,userImage,username
+        FROM discuss
+        where title LIKE CONCAT('%',#{title},'%') or discussContent LIKE CONCAT('%',#{title},'%')
+    </select>
+
+    <select id="selectDiscuss" parameterType="com.jishaokang.model.dto.Discuss" resultMap="DiscussMap">
+        SELECT discussId,user.userId,competitionId,discussTime,discussContent,discussType,replyTotal,userImage,username
+        FROM discuss
+        left join user on user.userId = discuss.userId
+        where discussType = #{discussType}
+    </select>
+
+    <select id="selectDiscussByDiscussId" parameterType="com.jishaokang.model.dto.Discuss" resultMap="DiscussMap">
+        SELECT discussId,user.userId,competitionId,discussTime,discussContent,discussType,replyTotal,userImage,username
+        FROM discuss
+        left join user on user.userId = discuss.userId
+        where discussId = #{discussId}
+    </select>
+
+    <update id="incReplyTotal" parameterType="int">
+        UPDATE discuss
+        SET replyTotal = replyTotal+1
+        WHERE discussId = #{discussId}
+    </update>
+
+</mapper>

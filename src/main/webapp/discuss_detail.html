@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <title>首页</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/index.css" type="text/css">
+    <link rel="stylesheet" href="css/discuss.css" type="text/css">
+    <link rel="stylesheet" href="css/discuss_detail.css" type="text/css">
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/index.js"></script>
+
+
+</head>
+
+
+<body onload="init()" >
+
+<div id="nav">
+    <div class="row clearfix" style="margin: 0;padding: 0;">
+        <div class="col-md-3 column">
+            <img src="image/logo3.png" height="85px" width="85px">
+            <span id="logo" >数据竞赛教育平台</span>
+        </div>
+        <div class="col-md-1 column nav-box nav_box_active">
+            <span onclick="">首页</span>
+        </div>
+        <div class="col-md-1 column nav-box ">
+            <span onclick="">题库</span>
+        </div>
+        <div class="col-md-1 column nav-box">
+            <span onclick="">班级</span>
+        </div>
+        <div class="col-md-1 column">
+            <span onclick="">论坛</span>
+        </div>
+
+        <div class="col-md-3 column">
+            <input id="nav-search" type="text">
+            <a onclick="" class="btn btn-default" id="search-button" >
+                <span class="glyphicon glyphicon-search"></span>
+                搜索
+            </a>
+        </div>
+        <!--未登录-->
+        <div class="col-md-2 column " id="login_show" >
+            <a id="nav-login" href="#nav-login-container" role="button" class="btn btn-default" data-toggle="modal">登录/注册</a>
+        </div>
+        <!--已登录-->
+        <div class="col-md-2 column hide" id="login_hide">
+            <div class="btn-group">
+                <button class="btn btn-default username_text" >用户名</button>
+                <button data-toggle="dropdown" class="btn btn-default dropdown-toggle"><span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="#">我的题目</a>
+                    </li>
+                    <li>
+                        <a href="#">我的班级</a>
+                    </li>
+                    <li>
+                        <a href="#">我的讨论</a>
+                    </li>
+                    <li >
+                        <a href="#">个人中心</a>
+                    </li>
+                    <li class="divider">
+                    </li>
+                    <li>
+                        <a href="#">注销</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--登录框-->
+        <div class="modal fade" id="nav-login-container" role="dialog"  aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content" style="width: 475px;">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <span class="modal-title login_title">
+                            登 录
+                        </span>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" id="login_number" class="input_box" placeholder="请输入手机号">
+                        <input type="text" id="login_password" class="input_box" placeholder="请输入密码">
+                        <div class="submit_login" onclick="login()">登&nbsp;&nbsp;录</div>
+                        <a id="forget_password" class="mini_input" href="#nav-forget-password-container" role="button" data-toggle="modal">忘记密码？立刻找回></a>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a id="register" class="mini_input" href="#nav-register-container" role="button" data-toggle="modal">没有账号？立即注册></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<!--        忘记密码-->
+        <div class="modal fade" id="nav-forget-password-container" role="dialog"  aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content" style="width: 475px;">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <span class="modal-title login_title">
+                            找回密码
+                        </span>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" id="forget_number" class="input_box" placeholder="请输入手机号">
+                        <input type="text" id="forget_verification" class="input_box" placeholder="请输入验证码">
+                        <input type="text" id="forget_password_input" class="input_box" placeholder="请输入新密码">
+                        <div class="submit_login">发送验证码</div>
+                        <div class="submit_login">登&nbsp;&nbsp;录</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--        注册-->
+        <div class="modal fade" id="nav-register-container" role="dialog"  aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content" style="width: 475px;">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <span class="modal-title login_title">
+                            注 册
+                        </span>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" id="register_number" class="input_box" placeholder="请输入手机号">
+                        <input type="text" id="register_verification" class="input_box" placeholder="请输入验证码">
+                        <input type="text" id="register_password" class="input_box" placeholder="请输入密码">
+                        <div class="submit_login send_verification" onclick="sendVerification()">发送验证码</div>
+                        <div class="submit_login" onclick="register()">注&nbsp;&nbsp;册</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+<div class="container">
+
+
+    <div class="discuss_title_box " >
+
+        <div class="row clearfix discuss_title ">
+            <div class="col-md-1 column">
+                <img class="pic" src="image\logo.png" height="60px" width="60px" >
+            </div>
+            <div class="col-md-10 column">
+                <span class="discuss_tag">&nbsp;&nbsp; 讨论 &nbsp;&nbsp;</span>
+                <span style="font-size: 18px;">&nbsp;关于题目该怎么实现</span><br>
+                <span class="glyphicon glyphicon-user" style="color: #ddd;"></span>
+                <span style="color: #888;font-size: small;">&nbsp;&nbsp;示例用户1&nbsp;&nbsp;</span>
+                <span class="glyphicon glyphicon-calendar" style="color: #ddd;"></span>
+                <span style="color: #888;font-size: small;">&nbsp;&nbsp;2020.3.16&nbsp;&nbsp;</span>
+            </div>
+            <div class="col-md-1 column comment_count">
+                <span class="glyphicon glyphicon-comment" style="font-size: 22px;"></span><br>
+                <span>34</span>
+            </div>
+            <div>
+            	<br><br><br>&nbsp;&nbsp;&nbsp;&nbsp;大家觉得下面那种方案更好？<br>&nbsp;&nbsp;&nbsp;&nbsp;方案一 负载均衡
+
+由于链路日志是乱序的分布在两个数据源里，可以先用后端引擎做一个负载均衡，把所有traceID相同的数据分流到同一个数据过滤节点上，方便处理。但在网络传输上会损耗比较多的带宽和时间。
+更好的方法是2个过滤节点采用相同的负载均衡算法，对于不属于自己的数据，直接转发到另一节点上
+<br>&nbsp;&nbsp;&nbsp;&nbsp;
+方案二 过滤节点数据互通
+
+当一个过滤节点收到parentSpanID为0的日志时（假设网络条件一致的情况下，所有该链路日志应该已经收集到两个过滤节点上），拉取另一节点上同一traceID的其他日志到本节点上，然后判断此调用链路是否符合上报标准。缺点还是增加了网络的资源损耗。
+<br><br>
+<div>
+        </div>
+
+        <div></div>
+
+        <editer></editer>
+        <div class="comment_title">回复列表</div>
+        <div class="comment_box">
+            <div class="row clearfix a_comment ">
+                <div class="col-md-1 column">
+                    <img class="pic" src="image\logo.png" height="50px" width="50px" >
+                </div>
+                <div class="col-md-10 column">
+                    <span style="font-size: 17px;">&nbsp;我觉得方案二号吧，好实现</span><br>
+                    <span class="glyphicon glyphicon-user" style="color: #ddd;"></span>
+                    <span style="color: #888;font-size: small;">&nbsp;&nbsp;示例用户2&nbsp;&nbsp;</span>
+                    <span class="glyphicon glyphicon-calendar" style="color: #ddd;"></span>
+                    <span style="color: #888;font-size: small;">&nbsp;&nbsp;2020.3.17&nbsp;&nbsp;</span>
+                </div>
+            </div>
+        </div>
+        <div class="comment_box">
+            <div class="row clearfix a_comment ">
+                <div class="col-md-1 column">
+                    <img class="pic" src="image\logo.png" height="50px" width="50px" >
+                </div>
+                <div class="col-md-10 column">
+                    <span style="font-size: 17px;">&nbsp;+1</span><br>
+                    <span class="glyphicon glyphicon-user" style="color: #ddd;"></span>
+                    <span style="color: #888;font-size: small;">&nbsp;&nbsp;示例用户3&nbsp;&nbsp;</span>
+                    <span class="glyphicon glyphicon-calendar" style="color: #ddd;"></span>
+                    <span style="color: #888;font-size: small;">&nbsp;&nbsp;2020.3.17&nbsp;&nbsp;</span>
+                </div>
+            </div>
+        </div>
+        <div class="comment_box">
+            <div class="row clearfix a_comment ">
+                <div class="col-md-1 column">
+                    <img class="pic" src="image\logo.png" height="50px" width="50px" >
+                </div>
+                <div class="col-md-10 column">
+                    <span style="font-size: 17px;">&nbsp;方案二</span><br>
+                    <span class="glyphicon glyphicon-user" style="color: #ddd;"></span>
+                    <span style="color: #888;font-size: small;">&nbsp;&nbsp;示例用户3&nbsp;&nbsp;</span>
+                    <span class="glyphicon glyphicon-calendar" style="color: #ddd;"></span>
+                    <span style="color: #888;font-size: small;">&nbsp;&nbsp;2020.3.17&nbsp;&nbsp;</span>
+                </div>
+            </div>
+        </div>
+        <div class="comment_box">
+            <div class="row clearfix a_comment ">
+                <div class="col-md-1 column">
+                    <img class="pic" src="image\logo.png" height="50px" width="50px" >
+                </div>
+                <div class="col-md-10 column">
+                    <span style="font-size: 17px;">&nbsp;方案二号吧</span><br>
+                    <span class="glyphicon glyphicon-user" style="color: #ddd;"></span>
+                    <span style="color: #888;font-size: small;">&nbsp;&nbsp;示例用户4&nbsp;&nbsp;</span>
+                    <span class="glyphicon glyphicon-calendar" style="color: #ddd;"></span>
+                    <span style="color: #888;font-size: small;">&nbsp;&nbsp;2020.3.17&nbsp;&nbsp;</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</div>
+
+</body>

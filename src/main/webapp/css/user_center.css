@@ -1,0 +1,118 @@
+.container{
+
+    padding-top: 30px;
+
+}
+.option_div{
+    background-color: white;
+    border-radius: 1px;
+    padding: 0 0;
+    margin: 0 0;
+    text-align: center;
+}
+.person_title{
+    font-size: 18px;
+    padding:20px 20px;
+    text-align: left;
+}
+.pic{
+    border-radius: 50%;
+}
+.line{
+
+    border-bottom: 3px #eee solid;
+}
+.option_box{
+
+    text-align: left;
+    font-size: 17px;
+    padding-left: 25px;
+    line-height: 62.5px;
+    color: #666;
+}
+.option_box_active{
+    background-color: #f7f7f7;
+    color: #0044cc;
+    border-left: 3px #5A8BED solid;
+}
+.option_box:hover{
+    background-color: #f7f7f7;
+    color: #0044cc;
+    cursor: pointer;
+}
+
+
+.right_div{
+
+}
+.right_box{
+    padding: 15px 15px;
+    background-color: white;
+    box-shadow: 0 2px 4px 0 rgba(216,216,216,0.60);
+    border-radius: 4px;
+    margin: 0 0;
+    min-height: 500px;
+}
+
+
+.competition_box{
+    height: 80px;
+    background-color: #fff;
+    padding:10px 10px;
+    border-bottom: 1px solid #ddd;
+    line-height: 50px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 0px;
+    margin-right: 0px;
+    border-radius: 2px;
+}
+
+.informations{
+    /*border-left:1px solid #5A8BED;*/
+    /*color: #5A8BED;*/
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 14.5px;
+    line-height: 40px;
+    border-left:1px solid #666;
+    color: #666;
+}
+.join{
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    border: 1.5px solid #5A8BED;
+    background-color:#5A8BED;
+    color: #fff;
+    line-height: 50px;
+    font-size:19px;
+    text-align: center;
+
+}
+.join:hover{
+    cursor: pointer;
+}
+.join_fail{
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background-color:#aaa;
+    color: #fff;
+    line-height: 50px;
+    font-size:15px;
+    text-align: center;
+}
+.join_invite{
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background-color:#6495ED;
+    color: #fff;
+    line-height: 50px;
+    font-size:14px;
+    text-align: center;
+}
+.join_invite:hover{
+    cursor: pointer;
+}

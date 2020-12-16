@@ -1,0 +1,114 @@
+.discuss_container{
+    margin-top: 20px;
+}
+.navs_box{
+    background-color: white;
+    line-height: 50px;
+    font-size: 17px;
+}
+.navs{
+    text-align: center;
+    color:#555;
+}
+.navs_active{
+    color: #6495ED;
+    border-bottom: 2px solid #6495ED;
+}
+.navs:hover{
+    color: #6495ED;
+    cursor: pointer;
+}
+.discuss_box{
+    margin-top: 3px;
+    background-color: white;
+    line-height: 35px;
+}
+.a_discuss{
+    height: 110px;
+    padding: 20px 30px;
+    border-bottom: 1px #eee solid;
+}
+.pic{
+    border-radius: 50%;
+}
+.article_tag{
+    background-color: #E9F7FE;
+    color: #002a80;
+    border-radius: 2px;
+    font-size: 13px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.discuss_tag{
+    background-color: #EBFFEB;
+    color: #006400;
+    border-radius: 4px;
+    font-size: 13px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.comment_count{
+    background-color: #f7f7f7;
+    text-align: center;
+    border-radius: 10px;
+    color: #aaa;
+    font-size: 15px;
+    padding-top: 15px;
+    line-height: 25px;
+    padding-bottom: 5px;
+}
+.person_discuss{
+    text-align: center;
+}
+
+.person_message{
+    margin-left: 5px;
+    background-color: white;
+    height: 150px;
+    padding: 25px 10px;
+}
+.username{
+    line-height: 50px;
+    font-size: 13px;
+    color: #666;
+}
+.count{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    line-height: 30px;
+    color: #666;
+    font-size: 15px;
+}
+.add_discuss_box{
+    margin-left: 5px;
+    margin-top: 3px;
+    padding: 50px 20px;
+    background-color: white;
+    height: 280px;
+}
+#input_discuss{
+    width: 80%;
+    border: 1px solid #0e90d2;
+    border-radius: 5px;
+    height: 35px;
+    font-size: 13px;
+}
+.search_logo{
+    padding-left: 8px;
+    color: #6495ED;
+    font-size: 17px;
+}
+.search_logo:hover{
+    cursor: pointer;
+}
+.add_discuss{
+    margin-top: 40px;
+    margin-left: 5px;
+    width: 90%;
+    border: 1px solid #0e90d2;
+    border-radius: 3px;
+    height: 40px;
+    font-size: 15px;
+    line-height: 40px;
+    color: #0044cc;
+}

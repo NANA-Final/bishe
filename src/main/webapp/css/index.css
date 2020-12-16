@@ -1,0 +1,169 @@
+body{
+    background-color: rgb(240,244,247);
+    margin: 0;
+    padding: 0;
+}
+#nav{
+    background-color: #fff;
+    box-shadow: 0 2px 10px 0 #DBE7F3;
+    margin: 0;
+    padding: 0 40px;
+    text-align: center;
+    font-size: 18px;
+    color: #000;
+    line-height: 85px;
+}
+#logo{
+    font-size: 25px;
+    color: #002a80;
+}
+.nav_box_active{
+    color: #0044cc;
+}
+.nav-box:hover{
+    background-color: rgb(247,249,251);
+    color: #0044cc;
+    cursor: pointer;
+}
+#nav-search{
+    height: 35px;
+    border: 1px solid #0e90d2;
+    border-radius: 5px;
+    width: 70%;
+}
+#search-button{
+    border: none;
+    font-size: 18px;
+    color: #0e90d2;
+    width: 15%;
+
+}
+#search-button:hover {
+    background-color: #E9F7FE;
+}
+#nav-login{
+    background-color: #E9F7FE;
+    border: 1px solid #0e90d2;
+    color: #002a80;
+}
+.breadcrumb_box{
+    font-size:17px;
+   padding: 0 0;
+}
+.login_title{
+    font-size: 30px;
+    color: #4A90E2;
+    border-bottom: 3px solid #4A90E2;
+    padding: 0 15px 5px;
+    margin-right: 14px;
+    margin-left: 15px;
+}
+.input_box{
+    width: 300px;
+    height: 80px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #EAEAEA;
+    margin-left: 47px;
+    padding: 10px 10px;
+    margin-top: 15px;
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+    letter-spacing: 1px;
+}
+.submit_login{
+    width: 300px;
+    height: 50px;
+    color: #fff;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 10px;
+    background: #497CD6;
+    border-radius: 100px;
+    cursor: pointer;
+    line-height: 50px;
+}
+
+input::-webkit-input-placeholder{
+    color:#666;
+}
+input::-moz-placeholder{   /* Mozilla Firefox 19+ */
+    color:#666;
+}
+input:-moz-placeholder{    /* Mozilla Firefox 4 to 18 */
+    color:#666;
+}
+input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color:#666;
+}
+.mini_input{
+    text-align: center;
+    color: #BBBBBB;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+
+
+
+/*产品简介*/
+.jumbotron{
+//background-image: url('/img/background.jpg');
+    color: #eee;
+    font-family: "宋体";
+}
+.summary_logo{
+    color: #fff;
+    font-family: "Helvetica";
+    text-shadow: #212f60 0.05em 0.05em 0.1em;
+}
+.summary_title{
+    color: #e6f5fe;
+}
+.summary_content{
+    color: #c2d3f6;
+//font-family: "华文细黑";
+}
+/*产品功能*/
+.function{
+    padding-top: 10px;
+    padding-bottom: 30px;
+}
+.function_item{
+    padding: 20px 20px;
+}
+.function_title{
+    line-height: 35px;
+    color: #151f42;
+    font-size: 22.5px;
+}
+.function_content{
+    color: #666;
+}
+/*产品特色*/
+.feature{
+    padding-top: 40px;
+    padding-bottom: 70px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+.feature_title{
+    padding-bottom: 50px;
+    text-align: center;
+}
+.feature_items{
+    padding:0 30px;
+}
+.feature_item{
+    padding:20px 0;
+    text-align: center;
+}
+.feature_title_item{
+    padding-top: 10px;
+    font-size: 18px;
+    line-height: 35px;
+}
+.feature_content{
+    font-size: 14px;
+    color: #777;
+}

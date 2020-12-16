@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <title>首页</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/index.css" type="text/css">
+    <link rel="stylesheet" href="css/competition.css" type="text/css">
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/index.js"></script>
+
+
+</head>
+
+
+<body onload="init()" >
+
+<div id="nav">
+    <div class="row clearfix" style="margin: 0;padding: 0;">
+        <div class="col-md-3 column">
+            <img src="image/logo3.png" height="85px" width="85px">
+            <span id="logo" >数据竞赛教育平台</span>
+        </div>
+        <div class="col-md-1 column nav-box ">
+            <span onclick="">首页</span>
+        </div>
+        <div class="col-md-1 column nav-box nav_box_active">
+            <span onclick="">题库</span>
+        </div>
+        <div class="col-md-1 column nav-box">
+            <span onclick="">班级</span>
+        </div>
+        <div class="col-md-1 column">
+            <span onclick="">论坛</span>
+        </div>
+
+        <div class="col-md-3 column">
+            <input id="nav-search" type="text">
+            <a onclick="" class="btn btn-default" id="search-button" >
+                <span class="glyphicon glyphicon-search"></span>
+                搜索
+            </a>
+        </div>
+        <div class="col-md-2 column" id="login_show " style="display: none">
+            <a id="nav-login" href="#nav-login-container" role="button" class="btn btn-default" data-toggle="modal">登录/注册</a>
+        </div>
+        <!--登录框-->
+        <div class="modal fade" id="nav-login-container" role="dialog"  aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content" style="width: 475px;">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <span class="modal-title login_title">
+                            登 录
+                        </span>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" id="login_number" class="input_box" placeholder="请输入手机号">
+                        <input type="text" id="login_password" class="input_box" placeholder="请输入密码">
+                        <div class="submit_login">登&nbsp;&nbsp;录</div>
+                        <a id="forget_password" class="mini_input" href="#nav-forget-password-container" role="button" data-toggle="modal">忘记密码？立刻找回></a>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a id="register" class="mini_input" href="#nav-register-container" role="button" data-toggle="modal">没有账号？立即注册></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--        忘记密码-->
+        <div class="modal fade" id="nav-forget-password-container" role="dialog"  aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content" style="width: 475px;">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <span class="modal-title login_title">
+                            找回密码
+                        </span>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" id="forget_number" class="input_box" placeholder="请输入手机号">
+                        <input type="text" id="forget_verification" class="input_box" placeholder="请输入验证码">
+                        <input type="text" id="forget_password_input" class="input_box" placeholder="请输入新密码">
+                        <div class="submit_login">发送验证码</div>
+                        <div class="submit_login">登&nbsp;&nbsp;录</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--        注册-->
+        <div class="modal fade" id="nav-register-container" role="dialog"  aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content" style="width: 475px;">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <span class="modal-title login_title">
+                            注 册
+                        </span>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" id="register_number" class="input_box" placeholder="请输入手机号">
+                        <input type="text" id="register_verification" class="input_box" placeholder="请输入验证码">
+                        <input type="text" id="register_password" class="input_box" placeholder="请输入密码">
+                        <div class="submit_login">发送验证码</div>
+                        <div class="submit_login">注&nbsp;&nbsp;册</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--已登录-->
+        <div class="col-md-2 column" id="login_hide" >
+            <div class="btn-group">
+                <button class="btn btn-default" >示例用户</button>
+                <button data-toggle="dropdown" class="btn btn-default dropdown-toggle"><span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="#">我的题目</a>
+                    </li>
+                    <li>
+                        <a href="#">我的班级</a>
+                    </li>
+                    <li>
+                        <a href="#">我的讨论</a>
+                    </li>
+                    <li >
+                        <a href="#">个人中心</a>
+                    </li>
+                    <li class="divider">
+                    </li>
+                    <li>
+                        <a href="#">注销</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container breadcrumb_box">
+    <ul class="breadcrumb">
+        <br>
+        <li><a href="#">主页</a></li>
+        <li><a href="#">题库</a></li>
+        <li class="active">搜索题目</li>
+    </ul>
+</div>
+
+
+<div class="container search_section">
+    <div class="row clearfix" style="padding-bottom: 10px;">
+        <div class="col-md-2 column"  id="search_box">
+                搜索全部题目:
+        </div>
+        <div class="col-md-8 column">
+            <input id="search" placeholder="  请输入查找内容" type="text">
+        </div>
+        <div class="col-md-1 column">
+            <button class="btn btn-primary">搜索</button>
+        </div>
+    </div>
+
+    <br>
+    <b>查找类型 </b>
+        <span class="section_box section_box_active" >&nbsp;&nbsp;&nbsp;题目名称</span>
+        <span class="section_box">教师名称 </span><br><br>
+    <b>报名状态 </b>
+        <span class="section_box section_box_active">&nbsp;&nbsp;&nbsp;全部</span>
+        <span class="section_box ">可报名</span>
+        <span class="section_box">已报名</span><br><br>
+    <b>题目状态 </b>
+        <span class="section_box ">&nbsp;&nbsp;&nbsp;全部</span>
+        <span class="section_box section_box_active">进行中</span>
+        <span class="section_box">已结束</span><br><br>
+
+    <small>共计</small>   23    <small>条搜索结果</small>
+
+</div>
+
+<div class="container">
+    <!--标题-->
+    <div class="row clearfix title" >
+        <div class="col-md-1 column" >
+            <img src="image/logo.png" height="70px" width="70px">
+        </div>
+        <div class="col-md-7 column" >
+            <span style="font-size: 27.5px;color:#24327E;line-height: 47px;">淘宝直播商品识别</span><br>
+            <span style="font-size: 15px;color:#6495ED;">by：李老师</span>
+            <br>
+        </div>
+        <div class="col-md-3 column informations">
+            参赛人数：&nbsp;116<br>
+            起止时间：&nbsp;2016.3.5-2016.3.6
+        </div>
+        <div class="col-md-1 column" >
+<!--            <button class="join" data-toggle="modal" data-target="#join_confirm">报名</button>-->
+<!--            <div class="join_fail">已报名</div>-->
+            <div class="join_invite">可报名</div>
+        </div>
+        <br>
+        <div class="introduction">
+            <b>简介：</b>
+            传统的电容，朗读时能不耗力，对于听书内容也不够灵活。我们借此开发了一款基于人工智能的有声书产品，试图结合两者优点。书内容也不够灵活。我们借此开发了一款基于人工智能的有声书产品，试图结合两者优点。书内容也不够灵活。我们借此开发了一款基于人工智能的有声书产品，试图结合两者优点。书内容也不够灵活。我们借此开发了一款基于人工智能的有声书产品，试图结合两者优点。书内容也不够灵活。我们借此开发了一款基于人工智能的有声书产品，试图结合两者优点。书内容也不够灵活。我们借此开发了一款基于人工智能的有声书产品，试图结合两者优点。
+        </div>
+    </div>
+
+    <!-- 确认框（Modal） -->
+    <div class="modal fade" id="join_confirm" tabindex="-1" role="dialog" aria-labelledby="confirm_label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="confirm_label">确认参赛提醒</h4>
+                    <br>温馨提示：该比赛不需要邀请码&nbsp;&nbsp;
+                    <input type="text">
+                    <br><br>
+                    <button type="button" class="btn btn-primary">确定参赛</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+<!--    结束-->
+
+    <!--标题-->
+    <div class="row clearfix title" >
+        <div class="col-md-1 column" >
+            <img src="image/logo.png" height="70px" width="70px">
+        </div>
+        <div class="col-md-7 column" >
+            <span style="font-size: 27.5px;color:#24327E;line-height: 47px;">二手车交易价格预测</span><br>
+            <span style="font-size: 15px;color:#6495ED;">by：李老师</span>
+            <br>
+        </div>
+        <div class="col-md-3 column informations">
+            参赛人数：&nbsp;15<br>
+            起止时间：&nbsp;2016.4.5-2016.7.5
+        </div>
+        <div class="col-md-1 column" >
+            <!--            <button class="join" data-toggle="modal" data-target="#join_confirm">报名</button>-->
+            <!--            <div class="join_fail">已报名</div>-->
+            <div class="join_fail">已报名</div>
+        </div>
+        <br>
+        <div class="introduction">
+            <b>简介：</b>
+            赛题以二手车市场为背景，要求选手预测二手汽车的交易价格，这是一个典型的回归问题。通过这道赛题来引导大家走进AI数据竞赛的世界，主要针对于于竞赛新人进行自我练习、自我提高。
+        </div>
+    </div>
+    <!--标题-->
+    <div class="row clearfix title" >
+        <div class="col-md-1 column" >
+            <img src="image/logo.png" height="70px" width="70px">
+        </div>
+        <div class="col-md-7 column" >
+            <span style="font-size: 27.5px;color:#24327E;line-height: 47px;">淘宝直播商品识别</span><br>
+            <span style="font-size: 15px;color:#6495ED;">by：李老师</span>
+            <br>
+        </div>
+        <div class="col-md-3 column informations">
+            参赛队数：&nbsp;116<br>
+            起止时间：&nbsp;2016.3.5-2016.3.6
+        </div>
+        <div class="col-md-1 column" >
+            <!--            <button class="join" data-toggle="modal" data-target="#join_confirm">报名</button>-->
+            <!--            <div class="join_fail">已报名</div>-->
+            <div class="join_invite">邀请报名</div>
+        </div>
+        <br>
+        <div class="introduction">
+            <b>简介：</b>
+            传统的电容，朗读时能不耗力，对于听书内容也不够灵活。我们借此开发了一款基于人工智能的有声书产品，试图结合两者优点。书内容也不够灵活。我们借此开发了一款基于人工智能的有声书产品，试图结合两者优点。书内容也不够灵活。我们借此开发了一款基于人工智能的有声书产品，试图结合两者优点。书内容也不够灵活。我们借此开发了一款基于人工智能的有声书产品，试图结合两者优点。书内容也不够灵活。我们借此开发了一款基于人工智能的有声书产品，试图结合两者优点。书内容也不够灵活。我们借此开发了一款基于人工智能的有声书产品，试图结合两者优点。
+        </div>
+    </div>
+    <!--标题-->
+    <div class="row clearfix title" >
+        <div class="col-md-1 column" >
+            <img src="image/logo.png" height="70px" width="70px">
+        </div>
+        <div class="col-md-7 column" >
+            <span style="font-size: 27.5px;color:#24327E;line-height: 47px;">淘宝直播商品识别</span><br>
+            <span style="font-size: 15px;color:#6495ED;">by：李老师</span>
+            <br>
+        </div>
+        <div class="col-md-3 column informations">
+            参赛队数：&nbsp;116<br>
+            起止时间：&nbsp;2016.3.5-2016.3.6
+        </div>
+        <div class="col-md-1 column" >
+            <!--            <button class="join" data-toggle="modal" data-target="#join_confirm">报名</button>-->
+            <!--            <div class="join_fail">已报名</div>-->
+            <div class="join_invite">邀请报名</div>
+        </div>
+        <br>
+        <div class="introduction">
+            <b>简介：</b>
+            传统的电容，朗读时能不耗力，对于听书内容也不够灵活。我们借此开发了一款基于人工智能的有声书产品，试图结合两者优点。书内容也不够灵活。我们借此开发了一款基于人工智能的有声书产品，试图结合两者优点。书内容也不够灵活。我们借此开发了一款基于人工智能的有声书产品，试图结合两者优点。书内容也不够灵活。我们借此开发了一款基于人工智能的有声书产品，试图结合两者优点。书内容也不够灵活。我们借此开发了一款基于人工智能的有声书产品，试图结合两者优点。书内容也不够灵活。我们借此开发了一款基于人工智能的有声书产品，试图结合两者优点。
+        </div>
+    </div>
+    <!--标题-->
+    <div class="row clearfix title" >
+        <div class="col-md-1 column" >
+            <img src="image/logo.png" height="70px" width="70px">
+        </div>
+        <div class="col-md-7 column" >
+            <span style="font-size: 27.5px;color:#24327E;line-height: 47px;">淘宝直播商品识别</span><br>
+            <span style="font-size: 15px;color:#6495ED;">by：李老师</span>
+            <br>
+        </div>
+        <div class="col-md-3 column informations">
+            参赛队数：&nbsp;116<br>
+            起止时间：&nbsp;2016.3.5-2016.3.6
+        </div>
+        <div class="col-md-1 column" >
+            <!--            <button class="join" data-toggle="modal" data-target="#join_confirm">报名</button>-->
+            <!--            <div class="join_fail">已报名</div>-->
+            <div class="join_invite">邀请报名</div>
+        </div>
+        <br>
+        <div class="introduction">
+            <b>简介：</b>
+            传统的电容，朗读时能不耗力，对于听书内容也不够灵活。我们借此开发了一款基于人工智能的有声书产品，试图结合两者优点。书内容也不够灵活。我们借此开发了一款基于人工智能的有声书产品，试图结合两者优点。书内容也不够灵活。我们借此开发了一款基于人工智能的有声书产品，试图结合两者优点。书内容也不够灵活。我们借此开发了一款基于人工智能的有声书产品，试图结合两者优点。书内容也不够灵活。我们借此开发了一款基于人工智能的有声书产品，试图结合两者优点。书内容也不够灵活。我们借此开发了一款基于人工智能的有声书产品，试图结合两者优点。
+        </div>
+    </div>
+
+
+
+
+
+
+    <ul class="pagination">
+        <li><a href="#">上一页</a></li>
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li><a href="#">6</a></li>
+        <li><a href="#">7</a></li>
+        <li><a href="#">8</a></li>
+        <li><a href="#">9</a></li>
+        <li><a href="#">下一页</a></li>
+    </ul>
+</div>
+
+
+</body>

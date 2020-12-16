@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <title>个人中心</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/index.css" type="text/css">
+    <link rel="stylesheet" href="css/class.css" type="text/css">
+    <link rel="stylesheet" href="css/user_center.css" type="text/css">
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/index.js"></script>
+
+
+</head>
+
+
+<body onload="init()" >
+<div id="nav">
+    <div class="row clearfix" style="margin: 0;padding: 0;">
+        <div class="col-md-3 column">
+            <img src="image/logo3.png" height="85px" width="85px">
+            <span id="logo" >数据竞赛教育平台</span>
+        </div>
+        <div class="col-md-1 column nav-box ">
+            <span onclick="">首页</span>
+        </div>
+        <div class="col-md-1 column nav-box ">
+            <span onclick="">题库</span>
+        </div>
+        <div class="col-md-1 column nav-box nav_box_active">
+            <span onclick="">班级</span>
+        </div>
+        <div class="col-md-1 column">
+            <span onclick="">论坛</span>
+        </div>
+
+        <div class="col-md-3 column">
+            <input id="nav-search" type="text">
+            <a onclick="" class="btn btn-default" id="search-button" >
+                <span class="glyphicon glyphicon-search"></span>
+                搜索
+            </a>
+        </div>
+        <div class="col-md-2 column" id="login_show " style="display: none">
+            <a id="nav-login" href="#nav-login-container" role="button" class="btn btn-default" data-toggle="modal">登录/注册</a>
+        </div>
+        <!--登录框-->
+        <div class="modal fade" id="nav-login-container" role="dialog"  aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content" style="width: 475px;">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <span class="modal-title login_title">
+                            登 录
+                        </span>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" id="login_number" class="input_box" placeholder="请输入手机号">
+                        <input type="text" id="login_password" class="input_box" placeholder="请输入密码">
+                        <div class="submit_login">登&nbsp;&nbsp;录</div>
+                        <a id="forget_password" class="mini_input" href="#nav-forget-password-container" role="button" data-toggle="modal">忘记密码？立刻找回></a>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a id="register" class="mini_input" href="#nav-register-container" role="button" data-toggle="modal">没有账号？立即注册></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--        忘记密码-->
+        <div class="modal fade" id="nav-forget-password-container" role="dialog"  aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content" style="width: 475px;">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <span class="modal-title login_title">
+                            找回密码
+                        </span>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" id="forget_number" class="input_box" placeholder="请输入手机号">
+                        <input type="text" id="forget_verification" class="input_box" placeholder="请输入验证码">
+                        <input type="text" id="forget_password_input" class="input_box" placeholder="请输入新密码">
+                        <div class="submit_login">发送验证码</div>
+                        <div class="submit_login">登&nbsp;&nbsp;录</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--        注册-->
+        <div class="modal fade" id="nav-register-container" role="dialog"  aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content" style="width: 475px;">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <span class="modal-title login_title">
+                            注 册
+                        </span>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" id="register_number" class="input_box" placeholder="请输入手机号">
+                        <input type="text" id="register_verification" class="input_box" placeholder="请输入验证码">
+                        <input type="text" id="register_password" class="input_box" placeholder="请输入密码">
+                        <div class="submit_login">发送验证码</div>
+                        <div class="submit_login">注&nbsp;&nbsp;册</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--已登录-->
+        <div class="col-md-2 column" id="login_hide" >
+            <div class="btn-group">
+                <button class="btn btn-default" >示例用户</button>
+                <button data-toggle="dropdown" class="btn btn-default dropdown-toggle"><span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="#">我的题目</a>
+                    </li>
+                    <li>
+                        <a href="#">我的班级</a>
+                    </li>
+                    <li>
+                        <a href="#">我的讨论</a>
+                    </li>
+                    <li >
+                        <a href="#">个人中心</a>
+                    </li>
+                    <li class="divider">
+                    </li>
+                    <li>
+                        <a href="#">注销</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="row clearfix">
+        <div class="col-md-3 column ">
+            <div class="class_div">
+                <div class="class_information_title">
+                    <span class="glyphicon glyphicon-home"></span>
+                    &nbsp;
+                    班级信息
+                </div>
+                <div class="class_information">
+                    班级名称：16级1班<br>
+                    班级号：2432524<br>
+                    指导教师：李老师<br>
+                    班级人数：34
+                </div>
+            </div>
+            <br>
+            <div class="class_div" >
+                <div class="class_information_title">
+                    <span class="glyphicon glyphicon-tasks"></span>
+                    &nbsp;
+                    班级动态
+                </div>
+                <div class="class_information">
+                    1.5日李老师发布作业<br>
+                    1.3日李老师发布作业<br>
+                    1.2日张三加入班级<br>
+                    1.2日李老师发布作业<br>
+                    1.2日李四加入班级<br>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-9 column right_div">
+            <div class="tabbable right_box" id="tabs-992384">
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#panel-1" data-toggle="tab">全部作业</a>
+                    </li>
+                    <li>
+                        <a href="#panel-2" data-toggle="tab">已提交作业</a>
+                    </li>
+                    <li >
+                        <a href="#panel-3" data-toggle="tab">未提交作业</a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="panel-1">
+
+                        <div class="row clearfix competition_box" >
+                            <div class="col-md-1 column" >
+                                <img src="image/logo.png" height="50px" width="50px" style="border-radius: 50%">
+                            </div>
+                            <div class="col-md-10 column" >
+                                <span style="font-size: 24px;color:#555;line-height: 50px;">淘宝直播商品识别</span>
+                                <span style="font-size: 15px;color:#777;">&nbsp;&nbsp;&nbsp;by：李老师</span>
+                                <span style="font-size: 15px;color:#777;">&nbsp;&nbsp;time：2016.3.5-2016.3.6</span>
+                                <br>
+                            </div>
+
+                            <div class="col-md-1 column" >
+                                <!--                                <button class="join" data-toggle="modal" data-target="#join_confirm">报名</button>-->
+                                <div class="join_fail">已报名</div>
+                                <!--            <div class="join_invite" data-toggle="modal" data-target="#join_confirm">邀请报名</div>-->
+                            </div>
+                            <br>
+                        </div>
+
+
+                        <div class="row clearfix competition_box" >
+                            <div class="col-md-1 column" >
+                                <img src="image/logo.png" height="50px" width="50px" style="border-radius: 50%">
+                            </div>
+                            <div class="col-md-10 column" >
+                                <span style="font-size: 24px;color:#555;line-height: 50px;">二手车交易预测</span>
+                                <span style="font-size: 15px;color:#777;">&nbsp;&nbsp;&nbsp;by：李老师</span>
+                                <span style="font-size: 15px;color:#777;">&nbsp;&nbsp;time：2016.5.5-2016.8.6</span>
+                                <br>
+                            </div>
+
+                            <div class="col-md-1 column" >
+                                <!--                                <button class="join" data-toggle="modal" data-target="#join_confirm">报名</button>-->
+                                <div class="join_fail">已报名</div>
+                                <!--            <div class="join_invite" data-toggle="modal" data-target="#join_confirm">邀请报名</div>-->
+                            </div>
+                            <br>
+                        </div>
+
+
+
+                        <div class="row clearfix competition_box" >
+                            <div class="col-md-1 column" >
+                                <img src="image/logo.png" height="50px" width="50px" style="border-radius: 50%">
+                            </div>
+                            <div class="col-md-10 column" >
+                                <span style="font-size: 24px;color:#555;line-height: 50px;">人脸对抗识别</span>
+                                <span style="font-size: 15px;color:#777;">&nbsp;&nbsp;&nbsp;by：李老师</span>
+                                <span style="font-size: 15px;color:#777;">&nbsp;&nbsp;time：2016.3.5-2016.3.6</span>
+                                <br>
+                            </div>
+
+                            <div class="col-md-1 column" >
+                                <!--                                <button class="join" data-toggle="modal" data-target="#join_confirm">报名</button>-->
+                                <div class="join_fail">已报名</div>
+                                <!--            <div class="join_invite" data-toggle="modal" data-target="#join_confirm">邀请报名</div>-->
+                            </div>
+                            <br>
+                        </div>
+
+
+                    </div>
+                    <div class="tab-pane" id="panel-2">
+
+                    </div>
+                    <div class="tab-pane" id="panel-3">
+
+                    </div>
+
+        </div>
+
+    </div>
+
+</div>
+</body>

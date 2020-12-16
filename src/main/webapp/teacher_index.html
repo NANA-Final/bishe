@@ -1,0 +1,208 @@
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>HomePage</title>
+
+
+
+<style type="text/css">
+  .header {
+    height: 62px;
+    border-bottom: 1px solid #d6dfea;
+    background: #eff4fa;
+  }
+  .header_logo {
+    float:left;
+    margin-left: 75px;
+    line-height:62px;
+    color: #5a98de;
+    font-size:30px;
+    font-family: "Impact";
+  }
+  .header_link {
+    float:right; 
+    margin-right:75px;
+    line-height:62px;
+  }
+  a {
+    font-size:13px;
+    font-family: "微软雅黑";
+    color: #225592;
+    text-decoration: none;
+  }
+  .content {
+    height:490px;
+  }
+  .content_wrapper {
+    float:left;
+    padding-left:50px;
+    height:480px;
+    width:700px;
+  }
+  .login_container {
+    width: 340px;
+    height: 370px;
+    position:absolute;
+    top:140px;
+    right:140px;
+    border: 1px solid #a0b1c4;
+    border-radius: 5px;
+    overflow: hidden;
+    text-align:center;
+  }
+  .login_title{
+    width: 340px;
+    height: 50px;
+    background-color:#f9fbfe;
+    font-size:16px;
+    font-family: "微软雅黑";
+    color: #494949;    
+    text-align:center;
+    line-height:50px;
+    border-bottom: 1px solid #a0b1c4;
+  }
+  input {
+    height:40px;
+    width:280px;
+    border: 1px solid #c0cdd9;
+    border-radius: 4px;
+    font-size: 16px;
+    font-family: "微软雅黑";
+    color:#494949;
+    padding-left:10px;
+    line-height:40px;
+  }
+  .blank{
+    height:10px;
+  }
+ .login_button {
+    height: 40px;
+    width:280px;
+    line-height: 40px;
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+    background: #5a98de;
+    border-radius: 3px;
+    border: none;
+  }
+  .footer {
+    position:fixed;
+    bottom:1px;
+    width:99%;
+    height: 45px;
+    border-bottom: 1px solid #d6dfea;
+    background: #eff4fa;
+    text-align: center;
+    line-height:45px;
+  }
+  .aboutus{
+    font-size: 13px;
+    font-family: "Leelawadee";   
+    color: #b6b6b6;
+  }
+
+
+  #nav{
+    background-color: #fff;
+    box-shadow: 0 2px 10px 0 #DBE7F3;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-size: 18px;
+    color: #000;
+    line-height: 85px;
+  }
+  #logo{
+    font-size: 27px;
+    color: #002a80;
+  }
+  .nav-box:hover{
+    background-color: rgb(247,249,251);
+    color: #0044cc;
+    cursor: pointer;
+  }
+
+</style>
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/index.js"></script>
+</head>
+<body>
+
+
+
+
+<div id="nav">
+  <div class="row clearfix" style="margin: 0;padding: 0;">
+    <div class="col-md-1 column nav-box">
+
+    </div>
+    <div class="col-md-3 column">
+      <img src="image/logo3.png" height="85px" width="85px">
+      <span id="logo">数据竞赛平台教师端</span>
+    </div>
+
+    <div class="col-md-1 column nav-box">
+
+    </div>
+    <div class="col-md-1 column nav-box">
+
+    </div>
+    <div class="col-md-1 column">
+    </div>
+    <div class="col-md-3 column">
+
+    </div>
+    <div class="col-md-2 column" id="login_show" >
+
+    </div>
+  </div>
+
+</div>
+
+
+  <div class="content">
+      <div class="content_wrapper" style="margin-left:100px;">
+        <br><br>
+        <img alt="homepageimage" src="image/background.png" height=480px width=700px>
+    </div>
+    <div class="login_container">
+      <div class="login_title">账号密码登录</div>
+      <div class="blank"></div>
+      <div class="blank"></div>
+      <div class="blank"></div>
+      <div class="blank"></div>
+      <div class="blank"></div>
+      <input type="text" name="username" placeholder="请输入用户名">
+      <div class="blank"></div>
+      <input type="password" name="password" placeholder="请输入密码">
+      <div class="blank"></div>
+      <div class="blank"></div>
+      <div class="blank"></div>
+      <div class="blank"></div>
+      <div class="blank"></div>
+      <input class="login_button" type="submit" value="登 录">      
+      <div class="blank"></div>
+      <div class="blank"></div>
+      <div class="blank"></div>
+      <div class="blank"></div>   
+      <a  href="forgetpassword.jsp">忘了密码? | </a>
+      <a  href="register.jsp">立即注册！</a>
+    </div>
+  </div>
+  <div class="footer">
+
+    <a  href="contactus.jsp">  联系我们 |</a>
+    <a  href="https://www.baidu.com/">  技术支持    </a>
+    <span class="aboutus"> | Homework made by Ji Shaokang  2020.3</span>
+  </div>
+  
+  </form>
+</body>
+</html>

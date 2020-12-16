@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <title>个人中心</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/index.css" type="text/css">
+    <link rel="stylesheet" href="css/user_center.css" type="text/css">
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/index.js"></script>
+
+
+</head>
+
+
+<body onload="init()" >
+<div id="nav">
+    <div class="row clearfix" style="margin: 0;padding: 0;">
+        <div class="col-md-3 column">
+            <img src="image/logo3.png" height="85px" width="85px">
+            <span id="logo" >数据竞赛教育平台</span>
+        </div>
+        <div class="col-md-1 column nav-box">
+            <span onclick="">首页</span>
+        </div>
+        <div class="col-md-1 column nav-box ">
+            <span onclick="">题库</span>
+        </div>
+        <div class="col-md-1 column nav-box">
+            <span onclick="">班级</span>
+        </div>
+        <div class="col-md-1 column">
+            <span onclick="">论坛</span>
+        </div>
+
+        <div class="col-md-3 column">
+            <input id="nav-search" type="text">
+            <a onclick="" class="btn btn-default" id="search-button" >
+                <span class="glyphicon glyphicon-search"></span>
+                搜索
+            </a>
+        </div>
+        <div class="col-md-2 column" id="login_show" >
+            <a id="nav-login" href="#nav-login-container" role="button" class="btn btn-default" data-toggle="modal">登录/注册</a>
+        </div>
+        <!--登录框-->
+        <div class="modal fade" id="nav-login-container" role="dialog"  aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content" style="width: 475px;">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <span class="modal-title login_title">
+                            登 录
+                        </span>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" id="login_number" class="input_box" placeholder="请输入手机号">
+                        <input type="text" id="login_password" class="input_box" placeholder="请输入密码">
+                        <div class="submit_login">登&nbsp;&nbsp;录</div>
+                        <a id="forget_password" class="mini_input" href="#nav-forget-password-container" role="button" data-toggle="modal">忘记密码？立刻找回></a>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a id="register" class="mini_input" href="#nav-register-container" role="button" data-toggle="modal">没有账号？立即注册></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--        忘记密码-->
+        <div class="modal fade" id="nav-forget-password-container" role="dialog"  aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content" style="width: 475px;">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <span class="modal-title login_title">
+                            找回密码
+                        </span>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" id="forget_number" class="input_box" placeholder="请输入手机号">
+                        <input type="text" id="forget_verification" class="input_box" placeholder="请输入验证码">
+                        <input type="text" id="forget_password_input" class="input_box" placeholder="请输入新密码">
+                        <div class="submit_login">发送验证码</div>
+                        <div class="submit_login">登&nbsp;&nbsp;录</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--        注册-->
+        <div class="modal fade" id="nav-register-container" role="dialog"  aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content" style="width: 475px;">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <span class="modal-title login_title">
+                            注 册
+                        </span>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" id="register_number" class="input_box" placeholder="请输入手机号">
+                        <input type="text" id="register_verification" class="input_box" placeholder="请输入验证码">
+                        <input type="text" id="register_password" class="input_box" placeholder="请输入密码">
+                        <div class="submit_login">发送验证码</div>
+                        <div class="submit_login">注&nbsp;&nbsp;册</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--已登录-->
+        <div class="col-md-2 column" id="login_hide" style="display: none">
+            <div class="btn-group">
+                <button class="btn btn-default" >用户名</button>
+                <button data-toggle="dropdown" class="btn btn-default dropdown-toggle"><span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="#">我的题目</a>
+                    </li>
+                    <li>
+                        <a href="#">我的班级</a>
+                    </li>
+                    <li>
+                        <a href="#">我的讨论</a>
+                    </li>
+                    <li >
+                        <a href="#">个人中心</a>
+                    </li>
+                    <li class="divider">
+                    </li>
+                    <li>
+                        <a href="#">注销</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+
+    <div class="row clearfix">
+        <div class="col-md-3 column option_div">
+
+            <div class="person_title">个人中心</div>
+            <img class="pic" src="image\logo.png" height="80px" width="80px" >
+            <br><br>hi,示例用户<br><br><br>
+            <div class="line"></div>
+            <div class="option_box">
+                <span class="glyphicon glyphicon-th-list"></span>
+                &nbsp;&nbsp;我的题目
+            </div>
+            <div class="option_box option_box_active">
+                <span class="glyphicon glyphicon-home"></span>
+                &nbsp;&nbsp;我的班级
+            </div>
+            <div class="option_box">
+                <span class="glyphicon glyphicon-comment"></span>
+                &nbsp;&nbsp;我的讨论
+            </div>
+            <div class="option_box">
+                <span class="glyphicon glyphicon-user"></span>
+                &nbsp;&nbsp;个人信息
+            </div>
+        </div>
+
+
+        <div class="col-md-9 column right_div">
+            <div class="tabbable right_box" id="tabs-992384">
+                <ul class="nav nav-tabs">
+                    <li>
+                        <a href="#panel-168338" data-toggle="tab">Section 1</a>
+                    </li>
+                    <li class="active">
+                        <a href="#panel-146923" data-toggle="tab">Section 2</a>
+                    </li>
+                    <li >
+                        <a href="#panel-146923" data-toggle="tab">Section 2</a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane" id="panel-168338">
+                        <p>
+                            I'm in Section 1.
+                        </p>
+                    </div>
+                    <div class="tab-pane active" id="panel-146923">
+                        <p>
+                            Howdy, I'm in Section 2.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>

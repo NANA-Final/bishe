@@ -1,0 +1,32 @@
+.container{
+    margin-top: 20px;
+}
+.discuss_title_box{
+    margin-top: 3px;
+    background-color: white;
+    line-height: 35px;
+    height: 1000px;
+}
+.discuss_title{
+    height: 110px;
+    padding: 20px 30px;
+    border-bottom: 1px #eee solid;
+}
+.comment_box{
+    background-color: white;
+    line-height: 27.5px;
+}
+.a_comment{
+    height: 70px;
+    padding: 10px 40px;
+    border-bottom: 1px #eee solid;
+}
+.comment_title{
+    padding-left: 30px;
+    font-size: 18px;
+    border-left: 2px #5A8BED solid;
+    color: #002a80;
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 1px #eee solid;
+}

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <title>首页</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/index.css" type="text/css">
+    <link rel="stylesheet" href="css/user_center.css" type="text/css">
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/index.js"></script>
+
+</head>
+
+
+<body onload="init()" >
+
+<div id="nav">
+    <div class="row clearfix" style="margin: 0;padding: 0;">
+        <div class="col-md-3 column">
+            <img src="image/logo3.png" height="85px" width="85px">
+            <span id="logo" >数据竞赛教育平台</span>
+        </div>
+        <div class="col-md-1 column nav-box nav_box_active">
+            <span onclick="">首页</span>
+        </div>
+        <div class="col-md-1 column nav-box ">
+            <span onclick="">题库</span>
+        </div>
+        <div class="col-md-1 column nav-box">
+            <span onclick="">班级</span>
+        </div>
+        <div class="col-md-1 column">
+            <span onclick="">论坛</span>
+        </div>
+
+        <div class="col-md-3 column">
+            <input id="nav-search" type="text">
+            <a onclick="" class="btn btn-default" id="search-button" >
+                <span class="glyphicon glyphicon-search"></span>
+                搜索
+            </a>
+        </div>
+        <!--未登录-->
+        <div class="col-md-2 column " id="login_show" >
+            <a id="nav-login" href="#nav-login-container" role="button" class="btn btn-default" data-toggle="modal">登录/注册</a>
+        </div>
+        <!--已登录-->
+        <div class="col-md-2 column hide" id="login_hide">
+            <div class="btn-group">
+                <button class="btn btn-default username_text" >用户名</button>
+                <button data-toggle="dropdown" class="btn btn-default dropdown-toggle"><span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="#">我的题目</a>
+                    </li>
+                    <li>
+                        <a href="#">我的班级</a>
+                    </li>
+                    <li>
+                        <a href="#">我的讨论</a>
+                    </li>
+                    <li >
+                        <a href="#">个人中心</a>
+                    </li>
+                    <li class="divider">
+                    </li>
+                    <li>
+                        <a href="#">注销</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--登录框-->
+        <div class="modal fade" id="nav-login-container" role="dialog"  aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content" style="width: 475px;">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <span class="modal-title login_title">
+                            登 录
+                        </span>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" id="login_number" class="input_box" placeholder="请输入手机号">
+                        <input type="text" id="login_password" class="input_box" placeholder="请输入密码">
+                        <div class="submit_login" onclick="login()">登&nbsp;&nbsp;录</div>
+                        <a id="forget_password" class="mini_input" href="#nav-forget-password-container" role="button" data-toggle="modal">忘记密码？立刻找回></a>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a id="register" class="mini_input" href="#nav-register-container" role="button" data-toggle="modal">没有账号？立即注册></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<!--        忘记密码-->
+        <div class="modal fade" id="nav-forget-password-container" role="dialog"  aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content" style="width: 475px;">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <span class="modal-title login_title">
+                            找回密码
+                        </span>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" id="forget_number" class="input_box" placeholder="请输入手机号">
+                        <input type="text" id="forget_verification" class="input_box" placeholder="请输入验证码">
+                        <input type="text" id="forget_password_input" class="input_box" placeholder="请输入新密码">
+                        <div class="submit_login">发送验证码</div>
+                        <div class="submit_login">登&nbsp;&nbsp;录</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--        注册-->
+        <div class="modal fade" id="nav-register-container" role="dialog"  aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content" style="width: 475px;">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <span class="modal-title login_title">
+                            注 册
+                        </span>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" id="register_number" class="input_box" placeholder="请输入手机号">
+                        <input type="text" id="register_verification" class="input_box" placeholder="请输入验证码">
+                        <input type="text" id="register_password" class="input_box" placeholder="请输入密码">
+                        <div class="submit_login send_verification" onclick="sendVerification()">发送验证码</div>
+                        <div class="submit_login" onclick="register()">注&nbsp;&nbsp;册</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+
+<!--产品简介-->
+<div id="product_summary">
+    <div class="jumbotron" style="background-image: url('img/background.jpg');">
+        <div class="container" style="text-align: center">
+            <br><br><br><br><br><br>
+            <h1 class="summary_logo" style="color: #fff">大数据竞赛在线教育平台</h1><br><br>
+
+            <p class="summary_content">
+                将数据竞赛与教育行业相结合<br>
+                集题目评测、班级作业、论坛设区于一体的综合性平台
+            </p>
+            <br><br><br><br>
+            <p>
+                <a class="btn btn-primary btn-lg" href="#product_online" role="button"
+                   style="background:rgba(0,0,0,0.25);color:#c2d3f6;font-size: 20px;font-family: '微软雅黑'">
+                    <span class="glyphicon glyphicon-play"></span> &nbsp; 前 往 题 库
+                </a>
+            </p>
+            <br><br><br>
+        </div>
+    </div>
+</div>
+
+<!--产品功能-->
+<div id="product_function" class="function">
+    <div class="container">
+        <div class="row" >
+
+            <div class="col-xs-12 col-sm-4 function_item" style="border-right: 1px solid #ddd;">
+                <div class="media" >
+                    <div class="media-left">
+                        <img class="media-object" src="img/metion.png" height=100px alt="情感朗读">
+                    </div>
+                    <div class="media-body" style="padding: 10px 5px">
+                        <h3 class="media-heading function_title">赛题与成绩</h3>
+                        <p class="function_content">
+                            学生可以利用题库中的题目进行训练，分析题目，编写代码，提交结果，而后产看成绩与排行榜
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="clearfix visible-xs"></div>
+
+            <div class="col-xs-12 col-sm-4 function_item" style="border-right: 1px solid #ccc;">
+                <div class="media">
+                    <div class="media-left">
+                        <img class="media-object" src="img/sound.png" height=100px alt="智能音效">
+                    </div>
+                    <div class="media-body" style="padding: 10px 5px">
+                        <h3 class="media-heading function_title">班级与作业</h3>
+                        <p class="function_content">
+                            教师以班级为单位收发作业，统计成绩，还可以查看系统提供的代码抄袭情况报告
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="clearfix visible-xs"></div>
+
+            <div class="col-xs-12 col-sm-4 function_item">
+                <div class="media" >
+                    <div class="media-left">
+                        <img class="media-object" src="img/text.png" height=100px alt="文本摘要">
+                    </div>
+                    <div class="media-body" style="padding: 10px 5px">
+                        <h3 class="media-heading function_title">讨论与笔记</h3>
+                        <p class="function_content">
+                            编码时有疑难问题可以在社区发表提问，获取帮助；利用笔记功能记录自己的心得体会
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--产品特色-->
+<div id="product_feature" class="feature">
+    <div class="feature_title">
+        <br>
+        <h1>我们的特色</h1>
+        <br>
+    </div>
+    <div class="container">
+        <div class="row feature_items">
+            <div class="col-xs-6 col-sm-3">
+                <div class="media">
+                    <div class="media-body feature_item">
+                        <img class="media-object" src="img/analyze.png" alt="更加自然" height=100px style="display: inline">
+                        <h4 class="media-heading feature_title_item">自动评分</h4>
+                        <div class="feature_content">
+                            机器评分取代人力
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-3">
+                <div class="media">
+                    <div class="media-body feature_item">
+                        <img class="media-object" src="img/people.png" alt="区分角色" height=100px style="display: inline">
+                        <h4 class="media-heading feature_title_item">更多角色</h4>
+                        <div class="feature_content">
+                            教师端与学生端共存
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="clearfix visible-xs"></div>
+
+            <div class="col-xs-6 col-sm-3">
+                <div class="media">
+                    <div class="media-body feature_item">
+                        <img class="media-object" src="img/deal.png" alt="丰富后期" height=100px style="display: inline">
+                        <h4 class="media-heading feature_title_item">社区讨论</h4>
+                        <div class="feature_content">
+                            发布讨论与笔记
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-3">
+                <div class="media">
+                    <div class="media-body feature_item">
+                        <img class="media-object" src="img/cost.png" alt="成本更低" height=100px style="display: inline">
+                        <h4 class="media-heading feature_title_item">简洁易用</h4>
+                        <div class="feature_content">
+                            界面人性化设计
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>

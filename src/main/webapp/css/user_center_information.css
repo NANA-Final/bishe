@@ -1,0 +1,14 @@
+.person_item_title{
+    background-color: #fafafa;
+    padding: 10px 30px;
+    font-size: 18px;
+    line-height: 50px;
+}
+.person_item{
+    border-bottom: 1px #eee solid;
+    font-size: 16px;
+    line-height: 45px;
+    padding: 10px 30px;
+    background-color: white;
+    color: #666;
+}

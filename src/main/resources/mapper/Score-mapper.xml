@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jishaokang.dao.ScoreDAO">
+
+    <insert id="insert" parameterType="com.jishaokang.model.dto.Score" useGeneratedKeys="true" keyProperty="scoreId">
+      INSERT INTO score (userId,competitionId,submitTime,submitFileUrl,submitCodeUrl,score)
+      VALUES (#{userId},#{competitionId},#{submitTime},#{submitFileUrl},#{submitCodeUrl},#{score})
+    </insert>
+
+    <select id="selectScoreByCompetitionId" parameterType="com.jishaokang.model.dto.Score" resultMap="com.jishaokang.model.dto.Score">
+        SELECT userId,competitionId,submitTime,submitFileUrl,submitCodeUrl,score
+        FROM (
+            select userId,competitionId,submitTime,submitFileUrl,submitCodeUrl,max(score) as score
+            from score
+            WHERE competitionId = #{competitionId}
+            group by userId
+        )
+        order by score DESC
+    </select>
+
+    <select id="selectScoreByCompetitionIdAndUserId" parameterType="com.jishaokang.model.dto.Score" resultMap="com.jishaokang.model.dto.Score">
+        SELECT * FROM score
+        WHERE competitionId = #{competitionId} and userId = #{userId}
+    </select>
+
+</mapper>

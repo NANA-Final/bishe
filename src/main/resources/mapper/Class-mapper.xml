@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jishaokang.dao.ClassDAO">
+
+    <insert id="addClass" parameterType="com.jishaokang.model.dto.Class" useGeneratedKeys="true" keyProperty="classId">
+      INSERT INTO class (teacherId,className,classTime,totalStudent)
+      VALUES (#{teacherId},#{className},now(),0)
+    </insert>
+
+    <delete id="deleteClass" parameterType="com.jishaokang.model.dto.Class">
+        DELETE FROM class
+        WHERE classId=#{classId}
+    </delete>
+
+    <select id="selectClassByTeacherId" parameterType="com.jishaokang.model.dto.Class" resultType="com.jishaokang.model.dto.Class">
+        SELECT classId,class.teacherId,teacherName,className,classTime,totalStudent
+        FROM class
+        left join teacher on teacher.teacherId = class.teacherId
+        WHERE class.teacherId = #{teacherId}
+    </select>
+
+    <select id="selectClassByClassId" parameterType="com.jishaokang.model.dto.Class" resultType="com.jishaokang.model.dto.Class">
+      SELECT classId,class.teacherId,teacherName,className,classTime,totalStudent
+        FROM class
+        left join teacher on teacher.teacherId = class.teacherId
+        WHERE classId = #{classId}
+    </select>
+
+    <insert id="addJoin" parameterType="com.jishaokang.model.dto.Class" useGeneratedKeys="true" keyProperty="classId">
+      INSERT INTO joinClass (userId,classId,joinTime,studentName)
+      VALUES (#{userId},#{classId},now(),#{studentName})
+    </insert>
+
+    <delete id="deleteJoin" parameterType="com.jishaokang.model.dto.Class">
+        DELETE FROM joinClass
+        WHERE userId = #{userId}
+    </delete>
+
+    <select id="selectClassByUserId" parameterType="com.jishaokang.model.dto.Class" resultType="com.jishaokang.model.dto.Class">
+        SELECT class.classId,class.teacherId,teacherName,className,classTime,totalStudent,studentName,joinTime,userId,joinId
+        FROM joinClass
+        left join class on class.classId = joinClass.classId
+        left join teacher on teacher.teacherId = class.teacherId
+        WHERE userId = #{userId}
+    </select>
+
+    <select id="selectJoinByClassId" parameterType="com.jishaokang.model.dto.Class" resultType="com.jishaokang.model.dto.Class">
+        SELECT class.classId,class.teacherId,teacherName,className,classTime,totalStudent,studentName,joinTime,userId,joinId
+        FROM joinClass
+        left join class on class.classId = joinClass.classId
+        left join teacher on teacher.teacherId = class.teacherId
+        WHERE class.classId = #{classId}
+    </select>
+
+</mapper>

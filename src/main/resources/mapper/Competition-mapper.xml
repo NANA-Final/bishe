@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jishaokang.dao.CompetitionDAO">
+
+
+    <select id="selectTotalCompetitionByKeyWord" parameterType="com.jishaokang.model.dto.Competition" resultType="int">
+        SELECT count(*)
+        FROM competition
+        LEFT JOIN teacher on competition.teacher_id = teacher.teacher_id
+        WHERE  (title LIKE CONCAT('%',#{title},'%') OR teacherName LIKE CONCAT('%',#{teacherName},'%'))
+        and (endTime &lt;= #{endTime})
+        and ( #{joinState}*(2*(SELECT count(*) FROM score WHERE score.competitionId = #{competitionId} and score.userId = #{userId})-1) &lt;= 0    )
+        LIMIT #{startNum},#{offset}
+    </select>
+
+    <select id="selectCompetitionByKeyWord" parameterType="com.jishaokang.model.dto.Competition" resultMap="com.jishaokang.model.dto.Competition">
+        SELECT competitionId,teacher.teacherId,teacherName,title,introduction,content,startTime,endTime,totalTeam,(SELECT count(*) FROM score WHERE score.competitionId = #{competitionId} and score.userId = #{userId}) as joinState
+        FROM competition
+        LEFT JOIN teacher on competition.teacher_id = teacher.teacher_id
+        WHERE  (title LIKE CONCAT('%',#{title},'%') OR teacherName LIKE CONCAT('%',#{teacherName},'%'))
+        and (endTime &lt;= #{endTime})
+        and ( #{joinState}*(2*(SELECT count(*) FROM score WHERE score.competitionId = #{competitionId} and score.userId = #{userId})-1) &lt;= 0    )
+        LIMIT #{startNum},#{offset}
+    </select>
+
+    <select id="selectCompetitionByCompetitionId" parameterType="com.jishaokang.model.dto.Competition" resultMap="com.jishaokang.model.dto.Competition">
+        SELECT competitionId,teacher.teacherId,teacherName,title,introduction,content,startTime,endTime,totalTeam,(SELECT count(*) FROM score WHERE score.competitionId = #{competitionId} and score.userId = #{userId}) as joinState
+        FROM competition
+        LEFT JOIN teacher on competition.teacher_id = teacher.teacher_id
+        WHERE competitionId = #{competitionId}
+    </select>
+
+    <select id="selectCompetitionByUserId" parameterType="com.jishaokang.model.dto.Competition" resultMap="com.jishaokang.model.dto.Competition">
+        SELECT competitionId,teacher.teacherId,teacherName,title,introduction,content,startTime,endTime,totalTeam,(SELECT count(*) FROM join WHERE join.competitionId = #{competitionId} and join.userId = #{userId}) as joinState
+        FROM competition
+        LEFT JOIN teacher on competition.teacher_id = teacher.teacher_id
+        WHERE userId = #{userId}
+    </select>
+
+
+    <insert id="insert" parameterType="com.jishaokang.model.dto.Competition" useGeneratedKeys="true" keyProperty="competitionId">
+      INSERT INTO competition (teacherId,title,introduction,content,startTime,endTime)
+      VALUES (#{teacherId},#{title},#{introduction},#{content},now(),#{endTime})
+    </insert>
+
+    <update id="updateCompetitionContent" parameterType="com.jishaokang.model.dto.Competition">
+        UPDATE competition
+        SET content = #{content}
+        WHERE competitionId = #{competitionId}
+    </update>
+
+    <delete id="delete" parameterType="int">
+        DELETE FROM competition
+        WHERE competitionId = #{competitionId}
+    </delete>
+
+    <select id="selectCompetitionByTeacherId" parameterType="com.jishaokang.model.dto.Competition" resultMap="com.jishaokang.model.dto.Competition">
+        SELECT competitionId,teacher.teacherId,teacherName,title,introduction,content,startTime,endTime,totalTeam
+        FROM competition
+        LEFT JOIN teacher on competition.teacher_id = teacher.teacher_id
+        WHERE competition.teacherId = #{teacherId}
+    </select>
+
+    <insert id="addDataFile" parameterType="com.jishaokang.model.dto.DataFile" useGeneratedKeys="true" keyProperty="dataFileId">
+      INSERT INTO dataFile (competitionId,dataName,dataUrl,dataSize,dataIntroduction)
+      VALUES (#{competitionId},#{dataName},#{dataUrl},#{dataSize},#{dataIntroduction})
+    </insert>
+
+    <delete id="deleteDataFile" parameterType="int">
+        DELETE FROM dataFile
+        WHERE dataFileId = #{dataFileId}
+    </delete>
+
+    <select id="selectDataFileByCompetitionId" parameterType="com.jishaokang.model.dto.Competition" resultMap="com.jishaokang.model.dto.Competition">
+        SELECT dataFileId,competitionId,dataName,dataUrl,dataSize,dataIntroduction
+        FROM dataFile
+        WHERE competitionId = #{competitionId}
+    </select>
+
+    <update id="incTotalTeam" parameterType="int">
+        UPDATE competition
+        SET totalTeam = totalTeam+1
+        WHERE competitionId = #{competitionId}
+    </update>
+
+
+</mapper>
